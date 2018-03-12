@@ -12,20 +12,21 @@ def main():
     #Init serial
     ser = serial.Serial('/dev/ttyUSB0',9600)
 
-    # #init publisher
-    # pub = rospy.Publisher("glove_data", Point, queue_size=10)
-    # rospy.init_node('data_pub')
-    # #rate = rospy.Rate(50)  #Publish rate
+    #Init publisher
+    pub = rospy.Publisher("glove_data", Point, queue_size=10)
+    rospy.init_node('data_pub')
+    #rate = rospy.Rate(50)  #Publish rate should be controlled by arduino
 
     #Init Variables
     arr = []
     data = []
     s = ""
-    # msg = Point()
+    flag = 0
+    msg = Point()
 
 
     #Look for a message
-    while(1):
+    while not rospy.is_shutdown():      #It will shut down the nodes but continue the loop if you don't check for is_shutdown()
 
         if (ser.in_waiting):
             c = ser.read()
@@ -36,18 +37,22 @@ def main():
                     #Split string into array
                     data = string.split(s,',')
 
-                    #Convert elements of the array to floats
-                    for x in range(len(data)):
-                        data[x] = float(data[x])
+                    if (flag > 14):
+                        #Convert elements of the array to floats
+                        for x in range(len(data)):
+                            data[x] = float(data[x])
 
-                    # #Export data
-                    # msg.x = data[0]
-                    # msg.y = data[1]
-                    # msg.z = data[2]
-                    # #mag = data[3]
-                    # pub.publish(msg)
-                    # rate.sleep()
-                    print data
+                        #Export data
+                        msg.x = data[0]
+                        msg.y = data[1]
+                        msg.z = data[2]
+                        #mag = data[3]
+                        pub.publish(msg)
+                        # rate.sleep()
+                        print data
+                    else:
+                        print s
+                        flag+=1
 
                     #Recalibrate
                     arr = []
