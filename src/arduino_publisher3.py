@@ -15,9 +15,9 @@ end = Point()
 def callback(data):
     global end
 
-    end.x = data.x
-    end.y = data.y
-    end.z = data.z
+    end.x = data.x/100.0
+    end.y = data.y/100.0
+    end.z = data.z/100.0
 
 
 
