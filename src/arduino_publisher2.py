@@ -16,6 +16,7 @@ class processor:
 
     def __init__(self):
         self.pub = rospy.Publisher("visualization_marker", Marker, queue_size=10)
+        #Does it make sense to declare the subscriber like this? It isn'a variable in example code. Maybe it's local?
         self.sub = rospy.Subscriber("glove_data", Point, self.callback)
 
         #Prep Message
