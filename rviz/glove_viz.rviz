@@ -53,7 +53,7 @@ Visualization Manager:
       Marker Topic: visualization_marker
       Name: Marker
       Namespaces:
-        {}
+        space: true
       Queue Size: 100
       Value: true
     - Class: rviz/Axes
@@ -124,5 +124,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 1200
-  X: 65
-  Y: 60
+  X: 720
+  Y: 199

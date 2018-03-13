@@ -26,7 +26,7 @@ def main():
     pub = rospy.Publisher("visualization_marker", Marker, queue_size=10)
     rospy.init_node('glove_publisher')
     rospy.Subscriber("glove_data", Point, callback)
-    rate = rospy.Rate(50)  #Publish rate
+    rate = rospy.Rate(100)  #Publish rate
 
     global msg
     global start

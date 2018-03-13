@@ -63,7 +63,7 @@ def main():
 
 
         else:
-            sleep(1)            #Wait 1 second
+            sleep(.25)            #Wait 1 second
 
 '''
 uint8 ARROW=0
