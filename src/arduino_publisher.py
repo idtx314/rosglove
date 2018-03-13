@@ -33,7 +33,7 @@ def main():
     global end
 
     #prep message
-    msg.header.frame_id = "base_link"
+    msg.header.frame_id = "glove_frame"
     msg.ns = "space"
     ''' #Set by default
     msg.id = 0
