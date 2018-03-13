@@ -3,7 +3,7 @@
 
 
 
-  <node name="data_pub" pkg="glove_visualizer" type="arduino_receiver.py" />
+  <node name="data_pub" pkg="glove_visualizer" type="arduino_receiver.py" output="screen"/>
 
   <node name="glove_publisher" pkg="glove_visualizer" type="arduino_publisher.py"/>
 
