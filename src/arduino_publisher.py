@@ -7,16 +7,33 @@ from visualization_msgs.msg import Marker
 from geometry_msgs.msg import Point
 
 
+msg = Marker()
+start = Point()
+end = Point()
+
+
+def callback(data):
+    global end
+
+    end.x = data.x/75.0
+    end.y = data.y/75.0
+    end.z = data.z/75.0
+
+
+
 def main():
     #init publisher
     pub = rospy.Publisher("visualization_marker", Marker, queue_size=10)
     rospy.init_node('glove_publisher')
+    rospy.Subscriber("glove_data", Point, callback)
     rate = rospy.Rate(50)  #Publish rate
 
+    global msg
+    global start
+    global end
+
     #prep message
-    msg = Marker()
     msg.header.frame_id = "base_link"
-    msg.header.stamp = rospy.Time.now()
     msg.ns = "space"
     ''' #Set by default
     msg.id = 0
@@ -30,8 +47,6 @@ def main():
     msg.color.a = 1.0
     msg.color.g = 1.0
 
-    start = Point()
-    end = Point()
     start.x = start.y = start.z = 0.0
     end.x = end.y = end.z = 2.0
 
