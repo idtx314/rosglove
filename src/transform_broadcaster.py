@@ -19,8 +19,15 @@ pose = Pose()
 def callback(data):
     global pose
 
+    #Translate into radians
+    data.x = data.x * 3.1415/180.
+    data.y = data.y * 3.1415/180.
+    data.z = data.z * 3.1415/180.
+
+    #Convert to a quaternion
     var = tf.transformations.quaternion_from_euler(data.x, data.y, data.z)
 
+    #Update pose
     pose.orientation.x = var[0]
     pose.orientation.y = var[1]
     pose.orientation.z = var[2]
