@@ -14,6 +14,7 @@ def main():
 
     #Init publisher
     pub = rospy.Publisher("glove_data", Point, queue_size=10)
+    pub2 = rospy.Publisher("glove_transform", Point, queue_size=10)
     rospy.init_node('data_pub')
     #rate = rospy.Rate(50)  #Publish rate should be controlled by arduino
 
@@ -23,6 +24,7 @@ def main():
     s = ""
     flag = 0
     msg = Point()
+    euler = Point()
 
 
     #Look for a message
@@ -43,11 +45,15 @@ def main():
                             data[x] = float(data[x])
 
                         #Export data
-                        msg.x = data[0]
-                        msg.y = data[1]
-                        msg.z = data[2]
-                        #mag = data[3]
+                        msg.x = data[0]     #Mag x
+                        msg.y = data[1]     #Mag y
+                        msg.z = data[2]     #Mag z
+                        #magnitude = data[3];
+                        euler.x = data[4]   #Roll
+                        euler.y = data[5]   #Pitch
+                        euler.z = data[6]   #Yaw
                         pub.publish(msg)
+                        pub2.publish(euler)
                         # rate.sleep()
                         print data
                     else:
