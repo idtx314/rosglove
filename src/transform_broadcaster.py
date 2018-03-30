@@ -50,11 +50,16 @@ def main():
 
     #Broadcast frames
     while not rospy.is_shutdown():
-        br.sendTransform((0.0, 2.0, 0.0),
+        br.sendTransform((0.0, 0.0, 0.0),
                          (pose.orientation.x, pose.orientation.y, pose.orientation.z, pose.orientation.w),
                          rospy.Time.now(),
                          "glove_frame",
                          "world_frame")
+        br.sendTransform((0.0, 0.0, 0.0),
+                         (tf.transformations.quaternion_from_euler(3.1415, 0, 3.1415/2.0)),
+                         rospy.Time.now(),
+                         "magnetometer_frame",
+                         "glove_frame")
         rate.sleep()
 
 

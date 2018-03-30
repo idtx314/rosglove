@@ -7,8 +7,8 @@ Panels:
         - /Global Options1
         - /Status1
         - /Marker1
-        - /Axes1
         - /Axes2
+        - /Axes3
       Splitter Ratio: 0.5
     Tree Height: 565
   - Class: rviz/Selection
@@ -60,18 +60,25 @@ Visualization Manager:
       Queue Size: 100
       Value: true
     - Class: rviz/Axes
-      Enabled: true
+      Enabled: false
       Length: 1
       Name: Axes
       Radius: 0.100000001
       Reference Frame: <Fixed Frame>
-      Value: true
+      Value: false
     - Class: rviz/Axes
       Enabled: true
       Length: 1
       Name: Axes
       Radius: 0.100000001
       Reference Frame: glove_frame
+      Value: true
+    - Class: rviz/Axes
+      Enabled: true
+      Length: 1
+      Name: Axes
+      Radius: 0.100000001
+      Reference Frame: magnetometer_frame
       Value: true
   Enabled: true
   Global Options:

@@ -8,8 +8,6 @@
 
   <node name="transform_broadcaster" pkg="glove_visualizer" type="transform_broadcaster.py" />
 
-  <node name="world_anchor" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 1 map world_frame 10"/>
-
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find glove_visualizer)/rviz/glove_viz.rviz" required="true" />
 
 

@@ -33,7 +33,7 @@ def main():
     global end
 
     #prep message
-    msg.header.frame_id = "world_frame"
+    msg.header.frame_id = "magnetometer_frame"
     msg.ns = "space"
     ''' #Set by default
     msg.id = 0
