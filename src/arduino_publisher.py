@@ -8,6 +8,7 @@ from geometry_msgs.msg import Point
 
 
 msg = Marker()
+image = Marker()
 start = Point()
 end = Point()
 
@@ -36,7 +37,7 @@ def main():
     msg.header.frame_id = "magnetometer_frame"
     msg.ns = "space"
     ''' #Set by default
-    msg.id = 0
+    msg.id = 0 #Must be unique for each message
     msg.type = Marker.ARROW
     msg.action = Marker.ADD
     '''
@@ -54,14 +55,30 @@ def main():
     msg.points.append(start)
     msg.points.append(end)
 
+    #Prep Mesh Message
+    image.header.frame_id = "magnetometer_frame"
+    image.ns = "space"
+    image.id = 1
+    image.type = Marker.MESH_RESOURCE
+    image.action = Marker.ADD
+    image.pose.orientation.w = 1.0
+    image.scale.x = 1.0
+    image.scale.y = 1.0
+    image.scale.z = 1.0
+    image.color.a = 1.0
+    image.color.g = 1.0
+    image.mesh_resource = "/home/id314/catkin_ws/src/glove_visualizer/resources/ring.stl"
+
 
     #loop
     while not rospy.is_shutdown():
         #Stamp Message
         msg.header.stamp = rospy.Time.now()
+        image.header.stamp = rospy.Time.now()
 
         #publish message
         pub.publish(msg)
+        pub.publish(image)
         rate.sleep()
 
 
