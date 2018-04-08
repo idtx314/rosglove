@@ -51,7 +51,8 @@ def main():
     #Broadcast frames
     while not rospy.is_shutdown():
         br.sendTransform((0.0, 0.0, 0.0),
-                         (pose.orientation.x, pose.orientation.y, pose.orientation.z, pose.orientation.w),
+                         #(pose.orientation.x, pose.orientation.y, pose.orientation.z, pose.orientation.w),
+                         (0, 0, 0, 1),
                          rospy.Time.now(),
                          "glove_frame",
                          "world_frame")

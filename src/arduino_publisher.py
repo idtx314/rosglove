@@ -15,9 +15,9 @@ end = Point()
 def callback(data):
     global end
 
-    end.x = data.x/75.0
-    end.y = data.y/75.0
-    end.z = data.z/75.0
+    end.x = data.x/100.0
+    end.y = data.y/100.0
+    end.z = data.z/100.0
 
 
 
@@ -41,7 +41,7 @@ def main():
     msg.action = Marker.ADD
     '''
     msg.pose.orientation.w = 1.0
-    msg.scale.x = 0.1  #Shaft radius
+    msg.scale.x = 0.1   #Shaft radius
     msg.scale.y = 0.5   #head radius
     msg.scale.z = 0.5   #head length
     msg.color.a = 1.0
