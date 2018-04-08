@@ -46,7 +46,7 @@ def main():
     msg.scale.y = 0.5   #head radius
     msg.scale.z = 0.5   #head length
     msg.color.a = 1.0
-    msg.color.g = 1.0
+    msg.color.r = 1.0
 
     start.x = start.y = start.z = 0.0
     end.x = end.y = end.z = 2.0
