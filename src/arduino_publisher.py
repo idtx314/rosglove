@@ -61,13 +61,16 @@ def main():
     image.id = 1
     image.type = Marker.MESH_RESOURCE
     image.action = Marker.ADD
-    image.pose.orientation.w = 1.0
-    image.scale.x = 1.0
-    image.scale.y = 1.0
-    image.scale.z = 1.0
+    image.pose.orientation.x = 0.00004
+    image.pose.orientation.y = 0.9
+    image.pose.orientation.z = 0.00004
+    image.pose.orientation.w = 0.000000002
+    image.scale.x = 0.05
+    image.scale.y = 0.05
+    image.scale.z = 0.05
     image.color.a = 1.0
     image.color.g = 1.0
-    image.mesh_resource = "/home/id314/catkin_ws/src/glove_visualizer/resources/ring.stl"
+    image.mesh_resource = "file:///home/id314/catkin_ws/src/glove_visualizer/resources/ring2.stl"
 
 
     #loop
@@ -80,6 +83,7 @@ def main():
         pub.publish(msg)
         pub.publish(image)
         rate.sleep()
+
 
 
 
