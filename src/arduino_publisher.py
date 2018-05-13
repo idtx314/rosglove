@@ -4,6 +4,7 @@
 
 
 import rospy
+import math
 from visualization_msgs.msg import Marker
 from geometry_msgs.msg import Point
 
@@ -17,10 +18,9 @@ end = Point()
 def callback(data):
     global end
 
-    end.x = data.x/100.0
-    end.y = data.y/100.0
-    end.z = data.z/100.0
-
+    end.x = math.copysign(math.sqrt(math.fabs(data.x)/1000)+0.5, data.x)
+    end.y = math.copysign(math.sqrt(math.fabs(data.y)/1000)+0.5, data.y)
+    end.z = math.copysign(math.sqrt(math.fabs(data.z)/1000)+0.5, data.z)
 
 
 def main():
