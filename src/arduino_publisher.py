@@ -2,6 +2,7 @@
 
 #Program Spec: Initiate a node, subscribe to /glove data, whenever I receive a point from glove data, substitute it for the marker end point and publish the marker to /visualization_marker
 
+
 import rospy
 from visualization_msgs.msg import Marker
 from geometry_msgs.msg import Point
@@ -33,7 +34,7 @@ def main():
     global start
     global end
 
-    #prep message
+    #prep Arrow message
     msg.header.frame_id = "magnetometer_frame"
     msg.ns = "space"
     ''' #Set by default
@@ -55,7 +56,7 @@ def main():
     msg.points.append(start)
     msg.points.append(end)
 
-    #Prep Mesh Message
+    #Prep Ring Mesh Message
     image.header.frame_id = "magnetometer_frame"
     image.ns = "space"
     image.id = 1
