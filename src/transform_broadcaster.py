@@ -25,7 +25,7 @@ def callback(data):
     data.z = data.z * 3.1415/180.
 
     #Convert to a quaternion
-    var = tf.transformations.quaternion_from_euler(data.x, data.y, data.z)
+    var = tf.transformations.quaternion_from_euler(data.x, -data.y, 0)
 
     #Update pose
     pose.orientation.x = var[0]
@@ -51,8 +51,7 @@ def main():
     #Broadcast frames
     while not rospy.is_shutdown():
         br.sendTransform((0.0, 0.0, 0.0),
-                         #(pose.orientation.x, pose.orientation.y, pose.orientation.z, pose.orientation.w),
-                         (0, 0, 0, 1),
+                         (pose.orientation.x, pose.orientation.y, pose.orientation.z, pose.orientation.w),
                          rospy.Time.now(),
                          "glove_frame",
                          "world_frame")
