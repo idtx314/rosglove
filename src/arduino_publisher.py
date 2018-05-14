@@ -47,7 +47,7 @@ def main():
     msg.scale.y = 0.5   #head radius
     msg.scale.z = 0.5   #head length
     msg.color.a = 1.0
-    msg.color.r = 1.0
+    msg.color.g = 1.0
 
     start.x = start.y = start.z = 0.0
     end.x = end.y = end.z = 2.0
@@ -70,7 +70,7 @@ def main():
     image.scale.y = 0.05
     image.scale.z = 0.05
     image.color.a = 1.0
-    image.color.g = 1.0
+    image.color.r = 1.0
     image.mesh_resource = "file:///home/id314/catkin_ws/src/glove_visualizer/resources/ring2.stl"
 
 
