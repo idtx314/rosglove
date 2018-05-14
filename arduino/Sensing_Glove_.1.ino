@@ -1,1 +1,0 @@
-/home/id314/Arduino/Sensing_Glove_.1/Sensing_Glove_.1.ino
